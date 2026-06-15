@@ -91,6 +91,14 @@ Recommendation research has progressed along two major branches:
 
 | Paper | Conference | Topic |
 | --- | --- | --- |
-
+| [`Distribution-Aware End-to-End Embedding for Streaming Numerical Features in Click-Through Rate Prediction`](https://doi.org/10.1145/3746252.3761565) | preprint | Numerical feature embedding, Streaming training, Sample-based distribution estimation, Quantile space interpolation, Field-wise modulation |
+| [`EulerNet: Adaptive Feature Interaction Learning via Euler's Formula for CTR Prediction`](https://doi.org/10.1145/3539618.3591681) | SIGIR(2023) | Euler's formula, Complex vector space, Phase and amplitude modulation, Adaptive high-order combination, Unified architecture |
+| [`FINAL: Factorized Interaction Layer for CTR Prediction`](https://doi.org/10.1145/3539618.3591988) | SIGIR(2023) | Factorized interaction layer, Fast exponentiation algorithm, Hierarchical interaction expansion, Multi-block knowledge exchange, Knowledge distillation |
+| [`HyFormer: Revisiting the Roles of Sequence Modeling and Feature Interaction in CTR Prediction`](https://arxiv.org/pdf/2601.12681) | preprint | Global token interface, Behavior sequence decoding, Token mixture boosting, Multi-sequence independent modeling, Bidirectional information flow |
+| [`OneTrans: Unified Feature Interaction and Sequence Modeling with One Transformer in Industrial Recommender`](https://arxiv.org/abs/2510.26104) | preprint | Unified tokenizer, Causal attention mask, Cross-request KV caching, Single Transformer backbone, Mixed-parameterization setting |
+| [`Towards Universal Sequence Representation Learning for Recommender Systems`](https://doi.org/10.1145/3534678.3539381) | KDD(2022) | UniSRec, Text-based encoding, Parameter whitening transform, Mixture-of-Experts adapter, Multi-domain contrastive learning |
+| [`Streamlining Feature Interactions via Selectively Crossing Vectors for Click-Through Rate Prediction`](https://doi.org/10.1145/3746252.3761193) | CIKM(2025) | Selectively crossing vectors, Global sparse interaction graph, Multi-stage expert learning, Inter-intra stream fusion, Label bias distillation |
+| [`Towards Unifying Feature Interaction Models for Click-Through Rate Prediction`](https://arxiv.org/abs/2411.12441) | preprint | IPA framework, Interaction function typification, Layer pooling method, Layer-wise weight combiner, Dimension collapse mitigation |
+| [`Wukong: Towards a Scaling Law for Large-Scale Recommendation`](https://arxiv.org/abs/2403.02545) | preprint | Power-law based FM stacking, Linear compression block, Dense scaling law expansion, Low-rank computation optimization, Pyramidal structure |
 
 
