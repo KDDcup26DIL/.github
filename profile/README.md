@@ -109,11 +109,56 @@ Because the data columns and feature ids are anonymized, direct semantic interpr
 
 Since many features are sequence-based and their lengths vary widely, modeling only sparse feature interactions may be insufficient. Sequence modeling should therefore be considered as an important component of the CTR prediction pipeline.
 
-### research (try)
-[![HyFormer](https://img.shields.io/badge/HyFormer-arXiv-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/pdf/2601.12681)
+### Research
+[![HyFormer](https://img.shields.io/badge/HyFormer-Backbone-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/pdf/2601.12681)
+[![UniMixer](https://img.shields.io/badge/UniMixer-Mixer-4c78a8?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2604.00590)
+[![RankUp](https://img.shields.io/badge/RankUp-Rank-6f42c1?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2604.17878)
+[![TokenFormer](https://img.shields.io/badge/TokenFormer-Gate-0f766e?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2604.13737)
+[![LoopCTR](https://img.shields.io/badge/LoopCTR-Auxloss-d97706?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2604.19550)
+[![DCNv2](https://img.shields.io/badge/DCNv2-Baseline-374151?style=for-the-badge)](https://arxiv.org/abs/2008.13535)
+[![Wukong](https://img.shields.io/badge/Wukong-arXiv-1f6feb?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2403.02545)
+[![LightGCN](https://img.shields.io/badge/LightGCN-Graph-64748b?style=for-the-badge)](https://arxiv.org/abs/2002.02126)
+[![SWA](https://img.shields.io/badge/SWA-Regularize-9ca3af?style=for-the-badge)](https://arxiv.org/abs/1803.05407)
 
-대회에서 제공한 3개의 최근 CTR prediction 모델을 리뷰하고 그 중 코드가 제공된 HyFormer를 backbone으로 개선할 수 있는 부분을 고민했다.
+**Research Goal.** Build a single-model CTR ranker that unifies feature interaction and multi-domain sequence modeling under the KDD Cup no-ensemble constraint.
 
+| Setup | Summary |
+| --- | --- |
+| Framework | Built a submission-compatible experiment pipeline with model-scoped `*_local` and `*_submission` folders, `run.local.sh` for train/valid/test evaluation, and `run.submit.sh` for official package generation. |
+| Local datasets | Evaluated baselines and variants on Toss Tiny, Frappe, Criteo, Avazu, and KDD Sample before selecting models for submission. |
+| Logging | Stored each run with aligned `log/`, `checkpoint/`, and `local_runs/` artifacts to trace metrics, failures, and selected checkpoints. |
+
+![HyFormer Ablation AUC](../assets/summary_kdd_submission/ablation_auc.svg)
+
+| Model | Submission AUC | Role | Summary |
+| --- | ---: | --- | --- |
+| `HyFormer UniMixer` | **0.817867** | Best | Tokenization + HyFormer internal mixing gave the strongest result. |
+| `HyFormer UniMixer token only` | **0.817618** | Strong variant | Tokenizer-level change transferred well without heavy block modification. |
+| `HyFormer tref` | **0.817137** | Main HyFormer improvement | Stable query construction from user/item/sequence summaries improved the base model. |
+| `HyFormer` | 0.813109 | Base | Strong sequence-aware baseline after 10 epochs. |
+| `HyFormer wo meanpool(seq)` | 0.804653 | Ablation | Removing sequence summary degraded performance. |
+| `HyFormer WuKong fusion` | 0.800326 | N-tower trial | Large auxiliary fusion failed to improve over the base. |
+| `DCNv2` / `Wukong` | 0.790978 / 0.791163 | Fast baselines | Useful early checks, but below HyFormer-family models. |
+| `LightGCN` / `user init` | 0.627606 / 0.619317 | Failed priors | Label-derived graph or click-history shortcuts did not transfer. |
+
+| Axis | Main Result | Decision |
+| --- | --- | --- |
+| Backbone | `HyFormer` reached **0.813109** and all top variants were HyFormer-based. | Use HyFormer as the main backbone. |
+| Query design | `HyFormer tref` improved HyFormer from **0.813109 → 0.817137**. | Keep stable `F_u`, `F_i`, and `MeanPool(Seq_i)` query construction. |
+| Tokenization | UniMixer token-only reached **0.817618**. | Prefer tokenizer-level changes over heavy block changes. |
+| Sequence signal | Removing `MeanPool(seq)` dropped to **0.804653**. | Preserve simple sequence summaries. |
+| Sparse regularization | `no_sparse_reinit` was the weakest ablation, **0.585525** AUC. | Keep high-cardinality embedding re-initialization. |
+
+| Tried Direction | Outcome | Lesson |
+| --- | --- | --- |
+| DCNv2 / Wukong baselines | Fast and useful, around **0.791** at 1 epoch. | Good sanity checks, not final best. |
+| WuKong / DCNv2 auxiliary fusion | Stayed around **0.799-0.800** submission AUC. | Large N-tower fusion introduced noise. |
+| LightGCN / user-click init | Dropped to **0.627606 / 0.619317**. | Avoid label-derived graph or user-history shortcuts. |
+| RankUp / TokenFormer / LoopCTR ideas | Mixed results as full variants. | Use them only as small internal modifications. |
+
+**Key Takeaway.** The best gains came from compact HyFormer-internal changes, not from adding larger external towers.
+
+For full experimental logs, model-family analysis, and failure cases, see [research_detail.md](research_detail.md).
 
 ## Reviews
 
