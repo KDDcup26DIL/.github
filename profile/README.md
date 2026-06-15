@@ -56,13 +56,16 @@ MS/Ph.D. Student
 | [`KDD_submission`](https://github.com/KDDcup26DIL/KDD_submission) | Main experiment repository used for the competition. The codebase was reorganized and adapted to comply with the official submission format of the TAAC KDD Cup 2026. |
 | [`FuxiCTR`](https://github.com/KDDcup26DIL/FuxiCTR) | Repository for CTR prediction experiments based on the FuxiCTR framework, including model implementation, training, and evaluation pipelines. |
 ## Motivation
-...
+Recommendation research has progressed along two major branches:
+1. Feature Interaction Models - focus on modeling high-dimensional multi-field categorical and contextual features.
+2. Sequential Models - capture the temporal dynamcis of user behavior through embedding-based retrieval systems and Transformer-style ranking models.
 
 ## Progress
 
 ### CTR Prediction Baselines
-
-...
+| Model Name | Description |
+| --- | --- |
+| ['HyFormer'](https://arxiv.org/pdf/2601.12681) | Query Decoding module that expands non-sequential features into global tokens to decode long behavioral sequences layer-by-layer, then alternates this with a Query Boosting module to explicitly mix and enrich these tokens through lightweight feature interaction across stacked layers. |
 
 ### Previous Competition Analysis
 
