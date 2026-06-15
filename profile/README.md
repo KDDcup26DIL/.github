@@ -65,7 +65,7 @@ Recommendation research has progressed along two major branches:
 ### CTR Prediction Baselines
 | Model Name | Description |
 | --- | --- |
-| ['HyFormer'](https://arxiv.org/pdf/2601.12681) | Query Decoding module that expands non-sequential features into global tokens to decode long behavioral sequences layer-by-layer, then alternates this with a Query Boosting module to explicitly mix and enrich these tokens through lightweight feature interaction across stacked layers. |
+| [`HyFormer`](https://arxiv.org/pdf/2601.12681) | Query Decoding module that expands non-sequential features into global tokens to decode long behavioral sequences layer-by-layer, then alternates this with a Query Boosting module to explicitly mix and enrich these tokens through lightweight feature interaction across stacked layers. |
 
 ### Previous Competition Analysis
 
