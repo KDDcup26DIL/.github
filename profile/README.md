@@ -60,6 +60,10 @@ Recommendation research has progressed along two major branches:
 1. Feature Interaction Models - focus on modeling high-dimensional multi-field categorical and contextual features.
 2. Sequential Models - capture the temporal dynamcis of user behavior through embedding-based retrieval systems and Transformer-style ranking models.
 
+Separated model progress limits → shallow corss-paradigm interaction, inconsistent optimization obejctives, limited scalability, and increasing hardware and engineering compelxity.
+
+To address above limitations, need to further accelerate "Towards Unifying Sequence Modeling and Feature Interaction for Large-scale Recommendaiton"
+
 ## Progress
 
 ### CTR Prediction Baselines
