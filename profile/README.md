@@ -62,7 +62,7 @@ Recommendation research has progressed along two major branches:
 
 Separated model progress limits → shallow corss-paradigm interaction, inconsistent optimization obejctives, limited scalability, and increasing hardware and engineering compelxity.
 
-To address above limitations, need to further accelerate **"Towards Unifying Sequence Modeling and Feature Interaction for Large-scale Recommendaiton"**
+Solution: **"Towards Unifying Sequence Modeling and Feature Interaction for Large-scale Recommendaiton"**
 
 ![Unified Sequence and Feature Interaction Recommendation System](../assets/KDD-Cup-figure.png)
 
