@@ -64,6 +64,8 @@ Separated model progress limits → shallow corss-paradigm interaction, inconsis
 
 To address above limitations, need to further accelerate **"Towards Unifying Sequence Modeling and Feature Interaction for Large-scale Recommendaiton"**
 
+![Unified Sequence and Feature Interaction Recommendation System](../assets/KDD-Cup-figure.png)
+
 ## Progress
 
 ### CTR Prediction Baselines
