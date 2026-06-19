@@ -164,7 +164,7 @@ Since many features are sequence-based and their lengths vary widely, modeling o
 For full experimental logs, model-family analysis, and failure cases, see [research_detail.md](research_detail.md).
 
 ## Reviews
-1. Based on Toss 2025 competition, and KDD cup 2026 result, there might be the influence of seed number.
+- Based on Toss 2025 competition, and KDD cup 2026 result, there might be the influence of seed number.
 
 ## Conclusion
 
@@ -195,4 +195,4 @@ For full experimental logs, model-family analysis, and failure cases, see [resea
 | [`UniMixer: A Unified Architecture for Scaling Laws in Recommendation Systems`](https://arxiv.org/abs/2604.00590) | preprint | Unified recommendation architecture, Scaling law analysis, Feature interaction and sequence modeling, Industrial recommendation systems |
 | [`Wide & Deep Learning for Recommender Systems`](https://arxiv.org/abs/1606.07792) | DLRS(2016) | Memorization and generalization, Wide linear model, Deep neural network, Sparse feature embeddings, Production recommender systems |
 | [`Wukong: Towards a Scaling Law for Large-Scale Recommendation`](https://arxiv.org/abs/2403.02545) | preprint | Power-law based FM stacking, Linear compression block, Dense scaling law expansion, Low-rank computation optimization, Pyramidal structure |
-| ['MMQ: Multimodal Mixture-of-antization Tokenization for Semantic ID Generation and User Behavioral Adaptation'](https://dl.acm.org/doi/10.1145/3773966.3777923) | WSDM(2026) | Codebook utilization, Semantic ID, Vector quantization, Item alignment |
+| [`MMQ: Multimodal Mixture-of-antization Tokenization for Semantic ID Generation and User Behavioral Adaptation`](https://dl.acm.org/doi/10.1145/3773966.3777923) | WSDM(2026) | Codebook utilization, Semantic ID, Vector quantization, Item alignment |
